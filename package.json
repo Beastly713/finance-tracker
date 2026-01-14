@@ -1,12 +1,23 @@
 {
   "name": "finance-tracker",
-  "module": "index.ts",
-  "type": "module",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "biome format . --write",
+    "db:push": "turbo run db:push",
+    "db:studio": "turbo run db:studio"
   },
-  "peerDependencies": {
-    "typescript": "^5"
-  }
+  "devDependencies": {
+    "turbo": "^1.12.4",
+    "typescript": "^5.3.3",
+    "@biomejs/biome": "1.5.3",
+    "@types/node": "^20.11.19"
+  },
+  "packageManager": "bun@1.0.26"
 }
